@@ -11,7 +11,7 @@ export default function DashboardPage() {
       <header className="bg-primary text-primary-foreground p-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold">Good morning, John</h1>
+            <h1 className="text-xl font-bold">Good morning, Kishan</h1>
             <p className="text-primary-foreground/80 text-sm">Ready to optimize your farm today?</p>
           </div>
           <div className="w-10 h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">

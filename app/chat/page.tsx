@@ -17,8 +17,8 @@ export default function ChatPage() {
             />
           </svg>
           <div>
-            <h1 className="text-xl font-bold">AgriBot Assistant</h1>
-            <p className="text-primary-foreground/80 text-sm">Your AI farming expert</p>
+            <h1 className="text-xl font-bold">एग्रीबॉट असिस्टेंट - हिंदी</h1>
+            <p className="text-primary-foreground/80 text-sm">आपका एआई खेती विशेषज्ञ</p>
           </div>
         </div>
       </header>

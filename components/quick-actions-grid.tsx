@@ -36,8 +36,8 @@ const quickActions = [
     color: "bg-blue-500",
   },
   {
-    title: "AI Assistant",
-    description: "Chat with farming expert",
+    title: "AI Assistant - Hindi Version ",
+    description: "Chat with farming expert with your local language",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path

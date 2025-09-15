@@ -18,7 +18,7 @@ interface Message {
 const initialMessages: Message[] = [
   {
     id: "1",
-    text: "Hello! I'm AgriBot, your AI farming assistant. I can help you with crop advice, pest management, weather guidance, and more. How can I assist you today?",
+    text: "नमस्ते! मैं एग्रीबॉट हूँ, आपका AI फ़ार्मिंग सहायक। मैं आपको फ़सल संबंधी सलाह, कीट प्रबंधन, मौसम संबंधी मार्गदर्शन, और भी बहुत कुछ प्रदान कर सकता हूँ। आज मैं आपकी कैसे सहायता कर सकता हूँ?",
     sender: "bot",
     timestamp: new Date(),
   },
@@ -69,27 +69,27 @@ export function ChatInterface() {
   const generateBotResponse = (userInput: string): string => {
     const input = userInput.toLowerCase()
 
-    if (input.includes("weather") || input.includes("rain") || input.includes("temperature")) {
-      return "Based on current weather patterns, I recommend checking soil moisture levels before irrigation. The upcoming forecast shows moderate temperatures with possible light rain in 2-3 days. This would be ideal for planting leafy vegetables."
+    if (input.includes("मौसम") || input.includes("बारिश") || input.includes("तापमान")) {
+      return "मौसम के वर्तमान रुझानों के अनुसार, सिंचाई से पहले मिट्टी की नमी की जाँच करना उचित रहेगा। आगामी पूर्वानुमान में हल्की बारिश की संभावना है और तापमान मध्यम रहेगा। यह पत्तेदार सब्ज़ियों की बुवाई के लिए अनुकूल समय है।"
     }
 
-    if (input.includes("pest") || input.includes("insect") || input.includes("bug")) {
-      return "For effective pest management, I suggest implementing integrated pest management (IPM). Start with neem oil spray for organic control, ensure proper crop rotation, and consider beneficial insects like ladybugs. Would you like specific advice for a particular pest?"
+    if (input.includes("कीट") || input.includes("कीड़ा") || input.includes("बग")) {
+      return "प्रभावी कीट प्रबंधन के लिए एकीकृत कीट प्रबंधन (IPM) अपनाएँ। जैविक नियंत्रण के लिए नीम तेल का छिड़काव करें, फसल चक्र अपनाएँ और लाभकारी कीट जैसे लेडीबग्स का उपयोग करें। क्या आप किसी विशेष कीट के लिए सलाह चाहते हैं?"
     }
 
-    if (input.includes("fertilizer") || input.includes("nutrient") || input.includes("soil")) {
-      return "Soil health is crucial for good yields. I recommend getting a soil test first to determine pH and nutrient levels. Generally, organic compost improves soil structure, while NPK fertilizers address specific nutrient needs. What type of crops are you planning to grow?"
+    if (input.includes("उर्वरक") || input.includes("पोषक") || input.includes("मिट्टी")) {
+      return "अच्छी पैदावार के लिए मिट्टी का स्वास्थ्य बहुत महत्वपूर्ण है। सबसे पहले मिट्टी की जाँच करवाएँ ताकि pH और पोषक तत्वों का स्तर पता चल सके। सामान्यतः, जैविक खाद मिट्टी की संरचना सुधारती है, जबकि NPK उर्वरक विशिष्ट पोषक तत्वों की पूर्ति करते हैं। आप कौन सी फसल उगाने की योजना बना रहे हैं?"
     }
 
-    if (input.includes("disease") || input.includes("fungus") || input.includes("blight")) {
-      return "Plant diseases can be prevented with proper spacing, good air circulation, and avoiding overhead watering. For fungal issues, copper-based fungicides work well. Early detection is key - remove affected plant parts immediately to prevent spread."
+    if (input.includes("रोग") || input.includes("फफूंदी") || input.includes("झुलसा")) {
+      return "फसल रोगों से बचाव के लिए पौधों में उचित दूरी रखें, हवा का संचार अच्छा हो और ऊपर से पानी देने से बचें। फफूंदी की समस्या के लिए कॉपर आधारित फफूंदनाशी उपयोगी है। प्रारंभिक पहचान बहुत जरूरी है - प्रभावित हिस्सों को तुरंत हटा दें ताकि रोग न फैले।"
     }
 
-    if (input.includes("water") || input.includes("irrigation") || input.includes("drought")) {
-      return "Water management is essential for healthy crops. Drip irrigation is most efficient, reducing water waste by 30-50%. Water early morning or evening to minimize evaporation. Mulching helps retain soil moisture and reduces watering frequency."
+    if (input.includes("पानी") || input.includes("सिंचाई") || input.includes("सूखा")) {
+      return "फसलों के लिए जल प्रबंधन अत्यंत आवश्यक है। ड्रिप सिंचाई सबसे प्रभावी है, जिससे 30-50% तक पानी की बचत होती है। सुबह या शाम के समय सिंचाई करें ताकि वाष्पीकरण कम हो। मल्चिंग से मिट्टी में नमी बनी रहती है और सिंचाई की आवश्यकता भी कम होती है।"
     }
-
-    return "That's a great question! Based on my agricultural knowledge, I'd recommend consulting with local agricultural extension services for region-specific advice. Meanwhile, focus on soil health, proper irrigation, and regular crop monitoring. Is there a specific aspect of farming you'd like to explore further?"
+    
+    return "यह एक बेहतरीन सवाल है! अपने कृषि ज्ञान के आधार पर, मैं क्षेत्र-विशिष्ट सलाह के लिए स्थानीय कृषि विस्तार सेवाओं से परामर्श करने की सलाह दूँगा। इस बीच, मिट्टी के स्वास्थ्य, उचित सिंचाई और नियमित फसल निगरानी पर ध्यान दें। क्या खेती का कोई ऐसा विशिष्ट पहलू है जिस पर आप और अधिक शोध करना चाहेंगे?"
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -111,7 +111,7 @@ export function ChatInterface() {
               >
                 <p className="text-sm leading-relaxed">{message.text}</p>
                 <p
-                  className={`text-xs mt-2 ${
+                  className={`text-xs mt-1 ${
                     message.sender === "user" ? "text-primary-foreground/70" : "text-muted-foreground"
                   }`}
                 >
@@ -186,14 +186,15 @@ export function ChatInterface() {
         <Input
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          placeholder="Ask about crops, weather, pests..."
-          className="flex-1"
+          placeholder="फसल, मौसम, कीट आदि के बारे में पूछें..."
+          className="flex-1 border border-gray-300 "
           disabled={isTyping}
         />
         <Button type="submit" disabled={!inputText.trim() || isTyping}>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
           </svg>
+          <span className="sr-only">भेजें</span>
         </Button>
       </form>
     </div>
