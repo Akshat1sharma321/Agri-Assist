@@ -12,16 +12,28 @@ const quickQuestions = [
 ]
 
 interface QuickQuestionsProps {
-  onQuestionSelect?: (question: string) => void
+  onQuestionSelect?: (question: string, customResponse: string) => void
+}
+
+
+const customResponses: Record<string, string> = {
+  "टमाटर लगाने का सबसे अच्छा समय क्या है?": "टमाटर लगाने का सबसे अच्छा समय अक्टूबर से दिसंबर तक होता है।",
+  "प्राकृतिक रूप से एफिड्स को कैसे नियंत्रित करें?": "एफिड्स को नियंत्रित करने के लिए नीम का तेल या साबुन का घोल छिड़कें।",
+  "गेहूं की कटाई कब करनी चाहिए?": "गेहूं की कटाई तब करें जब बालियां पूरी तरह पक जाएं और दाने सख्त हो जाएं।",
+  "चावल की फसलों के लिए कौन सा उर्वरक?": "चावल के लिए नाइट्रोजन, फॉस्फोरस और पोटाश युक्त उर्वरक उपयुक्त हैं।",
+  "मिट्टी के पीएच को कैसे सुधारें?": "मिट्टी के पीएच को सुधारने के लिए चूना या जैविक खाद का प्रयोग करें।",
+  "पौधों की बीमारियों के लक्षण?": "पौधों की बीमारियों में पत्तियों का पीला पड़ना, धब्बे आना, या मुरझाना शामिल है।",
 }
 
 export function QuickQuestions({ onQuestionSelect }: QuickQuestionsProps) {
   const handleQuestionClick = (question: string) => {
+    const response = customResponses[question]
     if (onQuestionSelect) {
-      onQuestionSelect(question)
+      onQuestionSelect(question, response)
     } else {
       // If no handler provided, we could dispatch an event or use a different approach
       console.log("Selected question:", question)
+      console.log("Custom response:", response)
     }
   }
 

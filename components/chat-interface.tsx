@@ -14,6 +14,11 @@ interface Message {
   timestamp: Date
   type?: "text" | "suggestion"
 }
+interface ChatInterfaceProps {
+  messages: Message[]
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>
+}
+
 
 const initialMessages: Message[] = [
   {
@@ -24,8 +29,8 @@ const initialMessages: Message[] = [
   },
 ]
 
-export function ChatInterface() {
-  const [messages, setMessages] = useState<Message[]>(initialMessages)
+export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
+
   const [inputText, setInputText] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)

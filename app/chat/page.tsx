@@ -1,8 +1,30 @@
+"use client"
+import { useState } from "react"
 import { ChatInterface } from "@/components/chat-interface"
 import { QuickQuestions } from "@/components/quick-questions"
 import { BottomNavigation } from "@/components/bottom-navigation"
 
 export default function ChatPage() {
+  const [messages, setMessages] = useState<any[]>([])
+
+  const addMessage = (question: string, response: string) => {
+    const userMessage = {
+      id: Date.now().toString(),
+      text: question,
+      sender: "user",
+      timestamp: new Date(),
+    }
+
+    const botMessage = {
+      id: (Date.now() + 1).toString(),
+      text: response,
+      sender: "bot",
+      timestamp: new Date(),
+    }
+
+    setMessages((prev) => [...prev, userMessage, botMessage])
+  }
+
   return (
     <div className="min-h-screen bg-background pb-20 flex flex-col">
       {/* Header */}
@@ -25,8 +47,8 @@ export default function ChatPage() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col">
-        <ChatInterface />
-        <QuickQuestions />
+        <ChatInterface messages={messages} setMessages={setMessages} />
+        <QuickQuestions onQuestionSelect={addMessage} />
       </main>
 
       <BottomNavigation />
