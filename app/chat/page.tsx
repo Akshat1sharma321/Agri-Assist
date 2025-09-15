@@ -5,25 +5,41 @@ import { QuickQuestions } from "@/components/quick-questions"
 import { BottomNavigation } from "@/components/bottom-navigation"
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<any[]>([])
-
-  const addMessage = (question: string, response: string) => {
-    const userMessage = {
-      id: Date.now().toString(),
-      text: question,
-      sender: "user",
-      timestamp: new Date(),
-    }
-
-    const botMessage = {
-      id: (Date.now() + 1).toString(),
-      text: response,
+  interface Message {
+    id: string
+    text: string
+    sender: "user" | "bot"
+    timestamp: Date
+    type?: "text" | "suggestion"
+  }
+  const initialMessages: Message[] = [
+    {
+      id: "1",
+      text: "नमस्ते! मैं एग्रीबॉट हूँ, आपका AI फ़ार्मिंग सहायक। मैं आपको फ़सल संबंधी सलाह, कीट प्रबंधन, मौसम संबंधी मार्गदर्शन, और भी बहुत कुछ प्रदान कर सकता हूँ। आज मैं आपकी कैसे सहायता कर सकता हूँ?",
       sender: "bot",
       timestamp: new Date(),
-    }
+    },
+  ]
 
-    setMessages((prev) => [...prev, userMessage, botMessage])
+  const [messages, setMessages] = useState<Message[]>(initialMessages)
+
+const addMessage = (question: string, response: string) => {
+  const userMessage: Message = {
+    id: Date.now().toString(),
+    text: question,
+    sender: "user",
+    timestamp: new Date(),
   }
+
+  const botMessage: Message = {
+    id: (Date.now() + 1).toString(),
+    text: response,
+    sender: "bot",
+    timestamp: new Date(),
+  }
+
+  setMessages((prev) => [...prev, userMessage, botMessage])
+}
 
   return (
     <div className="min-h-screen bg-background pb-20 flex flex-col">

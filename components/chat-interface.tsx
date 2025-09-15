@@ -20,17 +20,7 @@ interface ChatInterfaceProps {
 }
 
 
-const initialMessages: Message[] = [
-  {
-    id: "1",
-    text: "नमस्ते! मैं एग्रीबॉट हूँ, आपका AI फ़ार्मिंग सहायक। मैं आपको फ़सल संबंधी सलाह, कीट प्रबंधन, मौसम संबंधी मार्गदर्शन, और भी बहुत कुछ प्रदान कर सकता हूँ। आज मैं आपकी कैसे सहायता कर सकता हूँ?",
-    sender: "bot",
-    timestamp: new Date(),
-  },
-]
-
 export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
-
   const [inputText, setInputText] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
